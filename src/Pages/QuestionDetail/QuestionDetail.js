@@ -10,7 +10,7 @@ const SingleQuestion = () => {
     const [answers, setAnswers] = useState([]);
     const questionByPostId = async () => {
         try {
-            const question = await axios.get(`http://localhost:7000/api/question/${params.id}`);
+            const question = await axios.get(`${process.env.REACT_APP_base_url}/api/question/${params.id}`);
             setQuestion(question.data.data);
         } catch (err) {
             console.log("problem", err);
@@ -18,7 +18,7 @@ const SingleQuestion = () => {
     }
     const answersByQuestionId = async () => {
         try {
-            const answersRes = await axios.get(`http://localhost:7000/api/answer/${question?.question_id}`);
+            const answersRes = await axios.get(`${process.env.REACT_APP_base_url}/api/answer/${question?.question_id}`);
             setAnswers(answersRes.data.data);
         } catch (err) {
             console.log("problem", err);

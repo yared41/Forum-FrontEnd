@@ -14,7 +14,7 @@ export default function AskQuestion() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.post("http://localhost:7000/api/question",
+      await axios.post(`${process.env.REACT_APP_base_url}/api/question`,
         {
           id:userData.user.id,
           question: form.question,
